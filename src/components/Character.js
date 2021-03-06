@@ -21,7 +21,7 @@ const StyledContainer = styled.div `
 `
 const StyledParagraph = styled.p `
     font-family: "Noto Sans";
-    font-size: 2.5rem;
+    font-size: 1rem;
     text-decoration: underline;
     letter-spacing: 5px;
 `
@@ -37,7 +37,9 @@ const Character = (props) => {
         <StyledDiv>
             <StyledContainer>
                 <StyledParagraph>{character.name}</StyledParagraph>
-                <StyledParagraph>{character.birth_year}</StyledParagraph>
+                <StyledParagraph>Height: {character.height}</StyledParagraph>
+                <StyledParagraph>Year of Birth: {character.birth_year}</StyledParagraph>
+                <StyledParagraph>Hair Color {character.hair_color}</StyledParagraph>
             </StyledContainer>
 
         </StyledDiv>
