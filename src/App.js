@@ -4,6 +4,7 @@ import { Card, CardText, CardBody, CardTitle, Col, Container, Row } from 'reacts
 import Axios from 'axios'
 
 import Character from './components/Character'
+import Planets from './components/Planets'
 
 
 const App = () => {
@@ -11,6 +12,7 @@ const App = () => {
   // the state properties here.
 
   const [characters, setCharacter] = useState([])
+  const [planets, setPlanet] = useState([])
 
   // Fetch characters from the API in an effect hook. Remember, anytime you have a 
   // side effect in a component, you want to think about which state and/or props it should
@@ -19,6 +21,16 @@ const App = () => {
     Axios.get('https://swapi.dev/api/people/')
     .then(res => {
       setCharacter(res.data)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }, [])
+
+  useEffect (() => { //This section will fetch from the star wars api and access the planets...
+    Axios.get('https://swapi.dev/api/planets/')
+    .then(res => {
+      setPlanet(res.data)
     })
     .catch(err => {
       console.log(err)
@@ -34,6 +46,16 @@ const App = () => {
             <Character
               key={character.created}
               character={character}
+            />
+          )
+        })
+      }
+      {
+        planets.map(planet => {
+          return (
+            <Planets 
+              key={planet.created}
+              planet={planet}
             />
           )
         })

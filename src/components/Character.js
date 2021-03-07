@@ -27,10 +27,7 @@ const StyledParagraph = styled.p `
 `
 
 const Character = (props) => {
-    // This component will receive the characters list from state
-    // and render individual character cards.
-    // For now, this component will render simply the name and birthdate.
-    // If additional time allows after meeting mvp, we will add more data and create a drop down toggle for each card.
+    
     const {character} = props
     console.log(character)
     return (
